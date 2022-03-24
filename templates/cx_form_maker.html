@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulário Solicitação de Procedimento Hospitalar</title>
+    <meta charset="UTF-8">
+    <title> Hospital Humaniza - Solicitação de Procedimento Hospitalar</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
+
+
+
+  </head>
+  <body>
+    <h1> SOLICITAÇÃO DE PROCEDIMENTO HOSPITALAR </h1>
+    <h2> HOSPITAL HUMANIZA </H2>
+    <br/>
+    <form action= "" method = "POST">
+      {{ form.csrf_token() }}
+
+        <div class= "form group">
+            <label> Nome do paciente:</label>
+            {{ form.nome(_class="form-control", placeholder="Nome do paciente", size=40)}}
+
+            {% if form.errors.nome %}
+                <div class= "alert alert-danger" role="alert">
+                    <ul>
+                    {% for e in form.errors.nome %}
+                    <li>{{ e }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <label> Idade: </label>
+            {{ form.idade(_class="form-control", placeholder="idade (anos)", size=10)}}
+
+            {% if form.errors.idade %}
+                <div class= "alert alert-danger" role="alert">
+                    <ul>
+                    {% for e in form.errors.idade %}
+                    <li>{{ e }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+        <br/>
+
+        <div class= "form group" style="vertical-align: middle;">
+            <label> Justificativa: </label>
+            <br/>
+            <label><font color="white">___</font></font></label>
+            {{ form.justificativa(_class="form-control", placeholder="Justificativa", cols="65", rows="10")}}
+
+            {% if form.errors.justificativa %}
+                <div class= "alert alert-danger" role="alert">
+                    <ul>
+                    {% for e in form.errors.justificativa %}
+                    <li>{{ e }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+        <br/>
+
+        <div class= "form group">
+            <label> Tempo de Existência da Doença: </label>
+            {{ form.num_tempo(_class="form-control", size=8)}}
+            {{ form.unity_tempo(_class="form-control")}}
+
+            {% if form.errors.num_tempo %}
+                <div class= "alert alert-danger" role="alert">
+                    <ul>
+                    {% for e in form.errors.num_tempo %}
+                    <li>{{ e }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            {% if form.errors.unity_tempo %}
+                <div class= "alert alert-danger" role="alert">
+                    <ul>
+                    {% for e in form.errors.unity_tempo %}
+                    <li>{{ e }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class= "form group">
+            <label> Exames: </label>
+            {{ form.exames(_class="form-control", placeholder="Exames realizados", size=60)}}
+
+            {% if form.errors.exames %}
+                <div class= "alert alert-danger" role="alert">
+                    <ul>
+                    {% for e in form.errors.exames %}
+                    <li>{{ e }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class= "form group">
+            <label> Hipótese diagnóstica:</label>
+            {{ form.hipotese(_class="form-control", placeholder="Hipótese diagnóstica", size=45)}}
+
+            {% if form.errors.hipotese %}
+                <div class= "alert alert-danger" role="alert">
+                    <ul>
+                    {% for e in form.errors.hipotese %}
+                    <li>{{ e }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <label> CID 10: </label>
+            {{ form.cid(_class="form-control", placeholder="CID-10", size=8)}}
+
+            {% if form.errors.cid %}
+                <div class= "alert alert-danger" role="alert">
+                    <ul>
+                    {% for e in form.errors.cid %}
+                    <li>{{ e }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+        <br/>
+        <div class= "form group">
+            <label> Nível do atendimento: </label>
+            {{ form.carater(_class="form-control")}}
+            {% if form.errors.carater %}
+                <div class= "alert alert-danger" role="alert">
+                    <ul>
+                    {% for e in form.errors.carater %}
+                    <li>{{ e }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <label> Tempo de internação (dias): </label>
+            {{ form.duracao(_class="form-control", size=5)}}
+
+            {% if form.errors.duracao %}
+                <div class= "alert alert-danger" role="alert">
+                    <ul>
+                    {% for e in form.errors.duracao %}
+                    <li>{{ e }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+
+        <br/>
+        <div class= "form group">
+            <label> Anestesia: </label>
+            {{ form.anestesia(_class="form-control")}}
+
+            {% if form.errors.anestesia %}
+                <div class= "alert alert-danger" role="alert">
+                    <ul>
+                    {% for e in form.errors.anestesia %}
+                    <li>{{ e }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <label> Gravidade: </label>
+            {{ form.gravidade(_class="form-control")}}
+
+            {% if form.errors.gravidade %}
+                <div class= "alert alert-danger" role="alert">
+                    <ul>
+                    {% for e in form.errors.gravidade %}
+                    <li>{{ e }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+        <br/>
+        <div>
+            <h3> CÓDIGOS A SEREM SOLICITADOS </h3>
+            <br/>
+            <table class="table22" style="width:50%">
+                <tr>
+                    <th>Código CBHPM</th>
+                    <th>Descrição do Código</th>
+                    <th>Quantidade</th>
+                </tr>
+                <tr>
+                    <td>{{ form.code1(_class="form-control", size=30)}}</td>
+                    <td>{{ form.cx1(_class="form-control", size=60)}}</td>
+                    <td>{{ form.qx1(_class="form-control", size=5)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.code2(_class="form-control", size=30)}}</td>
+                    <td>{{ form.cx2(_class="form-control", size=60)}}</td>
+                    <td>{{ form.qx2(_class="form-control", size=5)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.code3(_class="form-control", size=30)}}</td>
+                    <td>{{ form.cx3(_class="form-control", size=60)}}</td>
+                    <td>{{ form.qx3(_class="form-control", size=5)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.code4(_class="form-control", size=30)}}</td>
+                    <td>{{ form.cx4(_class="form-control", size=60)}}</td>
+                    <td>{{ form.qx4(_class="form-control", size=5)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.code5(_class="form-control", size=30)}}</td>
+                    <td>{{ form.cx5(_class="form-control", size=60)}}</td>
+                    <td>{{ form.qx5(_class="form-control", size=5)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.code6(_class="form-control", size=30)}}</td>
+                    <td>{{ form.cx6(_class="form-control", size=60)}}</td>
+                    <td>{{ form.qx6(_class="form-control", size=5)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.code7(_class="form-control", size=30)}}</td>
+                    <td>{{ form.cx7(_class="form-control", size=60)}}</td>
+                    <td>{{ form.qx7(_class="form-control", size=5)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.code8(_class="form-control", size=30)}}</td>
+                    <td>{{ form.cx8(_class="form-control", size=60)}}</td>
+                    <td>{{ form.qx8(_class="form-control", size=5)}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <h3> OPME </h3>
+            <br/>
+            <table class="table22" style="width:50%">
+                <tr>
+                    <th style="width:34%">OPME</th>
+                    <th style="width:60%">Fornecedores</th>
+                    <th style="width:6%">Quantidade</th>
+                </tr>
+                <tr>
+                    <td>{{ form.opme1(_class="form-control", size=30)}}</td>
+                    <td>{{ form.forn1(_class="form-control", size=60)}}</td>
+                    <td>{{ form.qo1(_class="form-control", size=5)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.opme2(_class="form-control", size=30)}}</td>
+                    <td>{{ form.forn2(_class="form-control", size=60)}}</td>
+                    <td>{{ form.qo2(_class="form-control", size=5)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.opme3(_class="form-control", size=30)}}</td>
+                    <td>{{ form.forn3(_class="form-control", size=60)}}</td>
+                    <td>{{ form.qo3(_class="form-control", size=5)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.opme4(_class="form-control", size=30)}}</td>
+                    <td>{{ form.forn4(_class="form-control", size=60)}}</td>
+                    <td>{{ form.qo4(_class="form-control", size=5)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.opme5(_class="form-control", size=30)}}</td>
+                    <td>{{ form.forn5(_class="form-control", size=60)}}</td>
+                    <td>{{ form.qo5(_class="form-control", size=5)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.opme6(_class="form-control", size=30)}}</td>
+                    <td>{{ form.forn6(_class="form-control", size=60)}}</td>
+                    <td>{{ form.qo6(_class="form-control", size=5)}}</td>
+                </tr>
+            </table>
+        </div>
+
+
+      <br/>
+      <button type="submit" class="btn btn-default">Enviar</button>
+    </form>
+  </body>
+</html>
