@@ -307,11 +307,11 @@ def html_string(nome, idade, justificativa, anos, meses, dias, exames, hipotese,
     <table class="table3" style="width:100%">
         <tr>
             <td style="width:30%"><b>Tempo de Existência da Doença:</b></td>
-            <td style="width:4%"></td>
+            <td style="width:4%">{anos}</td>
             <td style="width:8%">Anos</td>
-            <td style="width:4%"></td>
+            <td style="width:4%">{meses}</td>
             <td style="width:8%">Meses</td>
-            <td style="width:4%"></td>
+            <td style="width:4%">{dias}</td>
             <td>Dias</td>
         </tr>
     </table>
