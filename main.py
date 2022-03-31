@@ -151,6 +151,8 @@ def cx_form():
             session['cx1'] = form.cx1.data
         except:
             session['cx1'] = "Sem códigos solicitados no verso."
+        if form.cx1.data == "":
+            session['cx1'] = "Sem códigos solicitados no verso."
         try:
             session['cx2'] = form.cx2.data
         except:
@@ -214,6 +216,8 @@ def cx_form():
         try:
             session['opme1'] = form.opme1.data
         except:
+            session['opme1'] = "Sem OPME para o presente exame."
+        if form.opme1.data == "":
             session['opme1'] = "Sem OPME para o presente exame."
         try:
             session['opme2'] = form.opme2.data
